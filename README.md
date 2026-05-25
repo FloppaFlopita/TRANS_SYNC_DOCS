@@ -1,6 +1,6 @@
 # TRANS SYNC
 
-Documentación del Sistema de gestión de ventas e inventario.
+Documentación del Sistema de Gestión de Ventas e Inventario.
 
 ## Tecnologías
 - Java
