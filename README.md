@@ -9,9 +9,9 @@ Documentación del Sistema de Gestión de Ventas e Inventario.
 - Arquitectura de Microservicios
 
 ## Modelado
-- Modelo C4
-- UML
-- casos de uso
+- Modelo C4.
+- UML.
+- casos de uso.
 
 ## Caso de Uso - Logearse
 
