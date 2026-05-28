@@ -1,0 +1,40 @@
+@startuml
+title Diagrama de Clases - TRANS SYNC
+'###################################################
+' ENUMNS
+'#####################################################
+enum EstadoVenta {
+   PENDIENTE
+   PAGADA
+   ANULADA
+}
+enum TipoMovimiento {
+   INGRESO
+   SALIDA
+   TRANSFERENCIA
+}
+enum Rol {
+   ADMINISTRADOR
+   VENDEDOR
+   DUENO
+}
+
+'######################################################################
+'USUARIOS
+'##############################################################################
+
+abstract class Usuario {
+    - idUsuario: int
+    - username: String
+    - password: String
+    - nombres: String
+    - apellidos: String
+    - estado: boolean
+    - ultimoAcceso: DataTime
+
+    + login (): boolean
+    + logout(): void
+    + cambiarPasword(Nueva:String): void
+    + tienePermiso(permiso:String): boolean
+}
+@enduml
