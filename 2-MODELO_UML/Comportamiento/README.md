@@ -1,10 +1,12 @@
 # Diagramas de comportamiento - TRANS SYNC
 
 ## Caso de Uso: Registrar Venta
-
+![descripción breve referente al diagrama](https://www.plantuml.com/plantuml/png/jL7DQfH14BpFKvHxKGy9ub72aX1K48EIJI92GDgPokx4-MRY_0GNyQ5y1b_C_eRzN7ObnrnsfxkhlggkFYvLScr3C84t5JKX--MgmlbCMtsAvabTSI2-XiPbbhKHMrF6xCGDFlfIixYKPv026JlJs3N--PrwNvynJVqhHaTbu9bbL79utZ7tzd_0ejcMopz4CUOf645rZ49hrHmSRtnCO43mWw_KHa1HMnn4uOlF2tmy__3cv1nhk54mJPIG2gmK_NL4AycOSM69oq3CjhpPJmD00LImJaulNxoyZk_Jaf8BkxFBqozQw-gxo2i9tac-ZZPJfQsNm38HDiDTnbj6vf5naRunujsdYmckprteMIgrGyyOYzmIZc3EAK-CNfXVOsQlzp9RoJ8X49b1DY7sDFe1M9HXjJdu7iyc7TnbholSIJ2ctna71_Fjvlt4kwrxkrUNtVhXOmRPMllU21KERKqbI01lQLkL38Q7_4qIE9nZ6pLUuUYeVyfnFjy7QS1xW4Vrrw-3msqSNPm_AgCRjO_rlmtXBm00)
 ### Diagrama de Caso de Uso
 
 ```plantuml
 @startuml
 !include ./1-Casos_Uso/CU01-registyer-venta.puml
 @enduml
+
+
