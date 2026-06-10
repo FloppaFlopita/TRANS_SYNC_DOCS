@@ -37,4 +37,98 @@ abstract class Usuario {
     + cambiarPasword(Nueva:String): void
     + tienePermiso(permiso:String): boolean
 }
+class VENDEDOR{
+    - codigoEmpleado: String
+    - sedeAsigando: String
+
+    + registrarVenta(): Venta
+    + consultarStock(): void
+}
+class ADMINISTRADOR{
+    + registrarUsuario(): void
+    + actualizarUsuario(): void
+    + eliminarUsuario(): void
+    + generarReporteVentas(): void
+    + generarReporteInventario(): void
+}
+class DUENO{
+    + visualDashboard(): void
+    + consultarGanancias(): double
+    + supervisarSedes(): void
+}
+
+Usuario <|-- VENDEDOR : es un tipo de <
+Usuario <|-- ADMINISTRADOR : es un tipo de <
+Usuario <|-- DUENO : es un tipo de <
+
+class Permiso {
+    - idPermiso: int
+    - nombre: String
+    - descripcion: String
+}
+
+Usuario "1" -- "s" Permiso : posee <
+Usuario --> Rol : asignado <
+
+
+'============================
+'VENTAS
+'============================
+
+class Venta{
+    - idVenta: init
+    - fecha: DataTime
+    - total: double
+    - igv: double
+    - estado: EstadoVenta
+
+    + calcularTotal(): double
+    + calcularIGV(): double
+    + registrarPago(): void
+    + generarComprobante(): void
+}
+class DetalleVenta {
+    - cantidad: init
+    - precioUnitario: double
+    - subtotal: double
+
+    + calcularSubtotal(): double
+}
+class Comprobante {
+    - idComprobante: int
+    - serie: String
+    - numero: String
+    - fechaEmision: DataTime
+
+    + emitir(): void
+    + descargarPDF(): void
+}
+
+Venta "1" *-- "1..*" DetalleVenta : contiene
+Venta "1" --> "1" Comprobante : genera
+VENDEDOR "1" --> "0..*" Venta : registra
+
+'============================
+'INVENTARIO
+'============================
+
+class Medicamento {
+    - idMedicamento: int
+    - nombre: String
+    - laboratorio: String
+    - fechaVencimiento: Date
+    - precioCompra: double
+    - requiereReceta: double
+
+    + actualizarPrecio): void
+    + validarVencimiento(): boolean
+}
+class Stock {
+    - idStock: int
+    - cantidadActual: int
+    - stok Minimo: init
+
+}
+
+
 @enduml
