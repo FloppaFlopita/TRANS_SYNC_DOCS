@@ -1,0 +1,30 @@
+@startuml
+!theme plain
+title Diagrama de Tiempos: Viaje Juliaca - Cusco (Minivan Z4A-123)
+
+robust "Estado Minivan" as minivan
+concise "App del Conductor" as app
+
+@0
+minivan is EN_TERMINAL_JULIACA
+app is CONECTADO_WIFI
+
+@15
+minivan is EN_RUTA
+app is TRANSMITIENDO_GPS_4G
+
+@90
+minivan is PARADA_TECNICA_AYAVIRI
+app is TRANSMITIENDO_GPS_4G
+
+@105
+minivan is EN_RUTA
+
+@240
+minivan is EN_TERMINAL_CUSCO
+app is FIN_DE_RUTA
+
+highlight 15 to 90 : Tramo 1
+highlight 105 to 240 : Tramo 2
+
+@enduml

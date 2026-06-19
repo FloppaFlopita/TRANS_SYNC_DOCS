@@ -1,0 +1,25 @@
+@startuml
+|#LightBlue Escenario Funcional (Usuario)|
+start
+:Inicia Sesión;
+:Accede al módulo ventas;
+:Busca/Selecciona cliente;
+:Selecciona productos;
+:Ingresa cantidad;
+:Confirma venta;
+
+|#LightPink Caso Técnico (Sistema - TRANS_SYNC)|
+:API Gateway;
+:Auth Service\n(Microservicio de Autenticación);
+note right: Consulta BD Auth
+:Ventas Service\n(Microservicio de Ventas);
+note right: Consulta BD Ventas
+:Validar Stock;
+:Inventario Service\n(Microservicio de Inventario);
+note right: Consulta BD Inventario
+:Respuesta al Frontend\n(Venta Registrada);
+
+|#LightBlue Escenario Funcional (Usuario)|
+:Visualizar comprobante;
+stop
+@enduml

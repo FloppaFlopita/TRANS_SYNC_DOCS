@@ -1,0 +1,21 @@
+@startuml
+!theme plain
+
+title Ciclo de Vida de una Encomienda (Trazabilidad) - TRANS-SYNC
+
+[*] --> EN_ALMACEN_ORIGEN : Counter registra paquete\n(Genera QR y Tracking)
+
+EN_ALMACEN_ORIGEN --> EN_RUTA : Conductor asigna carga\na la minivan y parte
+
+state EN_RUTA {
+    [*] --> En_Viaje_Interprovincial
+    En_Viaje_Interprovincial --> Transbordo_Emergencia : Reporte de avería\nen carretera
+    Transbordo_Emergencia --> En_Viaje_Interprovincial : Carga movida a\notra minivan
+}
+
+EN_RUTA --> EN_ALMACEN_DESTINO : Minivan llega a sede\n(Juliaca / Puno / Cusco)
+
+EN_ALMACEN_DESTINO --> ENTREGADO : Counter verifica DNI,\nfirma y entrega paquete
+
+ENTREGADO --> [*]
+@enduml

@@ -1,0 +1,23 @@
+@startuml
+!theme plain
+left to right direction
+skinparam rectangle {
+    BackgroundColor #e6f2ff
+    BorderColor #0b4884
+}
+
+title Diagrama de Comunicación: Rastrear Encomienda (Tracking)
+
+rectangle "Pasajero (Cliente)" as cliente
+rectangle ": App Web (Frontend)" as app
+rectangle ": API Gateway" as api
+rectangle ": MS Encomiendas" as ms
+
+cliente --> app : 1: Ingresa código Tracking QR
+app --> api : 2: GET /api/encomiendas/{id}
+api --> ms : 3: Enrutar petición de consulta
+ms --> api : 4: Retorna Estado (Ej: "EN RUTA")
+api --> app : 5: 200 OK (Datos JSON)
+app --> cliente : 6: Muestra ubicación actual en pantalla
+
+@enduml

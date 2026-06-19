@@ -1,0 +1,59 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Dueño del Negocio" as dueno
+actor "Despachador (Counter)" as despachador
+actor "Conductor" as conductor
+actor "Pasajero" as pasajero
+actor "Mantenimiento" as mantenimiento
+
+rectangle "TRANS-SYNC (Gestión de Transporte y Encomiendas)" {
+
+  ' Casos de uso generales (Seguridad)
+  usecase "Iniciar Sesión" as UC_Login
+
+  ' Casos de uso de Pasajes
+  usecase "Vender Pasaje" as UC_VenderPasaje
+  usecase "Comprar Boleto Online" as UC_ComprarBoleto
+
+  ' Casos de uso de Encomiendas
+  usecase "Registrar Recepción de Encomienda" as UC_RecibirEncomienda
+  usecase "Consultar Estado de Paquete" as UC_RastrearPaquete
+  usecase "Registrar Entrega a Destinatario" as UC_EntregarPaquete
+
+  ' Casos de uso de Rutas y Vehículos
+  usecase "Reportar Inicio/Fin de Ruta" as UC_ReportarRuta
+  usecase "Registrar Estado Técnico (Camionetas)" as UC_Mantenimiento
+
+  ' Casos de uso Gerenciales
+  usecase "Supervisar Rentabilidad y Reportes" as UC_Reportes
+}
+
+' Relaciones Despachador
+despachador --> UC_VenderPasaje
+despachador --> UC_RecibirEncomienda
+despachador --> UC_EntregarPaquete
+
+' Relaciones Conductor
+conductor --> UC_ReportarRuta
+conductor --> UC_EntregarPaquete
+
+' Relaciones Dueño
+dueno --> UC_Reportes
+
+' Relaciones Pasajero
+pasajero --> UC_ComprarBoleto
+pasajero --> UC_RastrearPaquete
+
+' Relaciones Mantenimiento
+mantenimiento --> UC_Mantenimiento
+
+' Includes (Todos los empleados deben iniciar sesión para hacer sus tareas)
+UC_VenderPasaje .> UC_Login : <<include>>
+UC_RecibirEncomienda .> UC_Login : <<include>>
+UC_ReportarRuta .> UC_Login : <<include>>
+UC_Reportes .> UC_Login : <<include>>
+UC_Mantenimiento .> UC_Login : <<include>>
+
+@enduml

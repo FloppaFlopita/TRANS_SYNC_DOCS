@@ -1,0 +1,54 @@
+@startuml
+autonumber
+skinparam maxMessageSize 150
+skinparam participant {
+    BackgroundColor #e2e8f0
+    BorderColor #475569
+}
+
+title Diagrama de Secuencia: Vender un Pasaje (Microservicios)
+
+actor "Despachador\n(Counter)" as despachador
+participant "App Web\n(Frontend)" as web
+participant "API Gateway" as api
+participant "MS Autenticación" as ms_auth
+participant "MS Pasajes" as ms_pasajes
+participant "MS Liquidación\n(Auditoría)" as ms_auditoria
+
+despachador -> web : Selecciona ruta, asiento,\ningresa DNI y confirma venta
+activate web
+
+web -> api : POST /api/ventas\n(Header: Token JWT)
+activate api
+
+note right of api: El API Gateway intercepta\nla petición por seguridad
+
+api -> ms_auth : Validar Token JWT
+activate ms_auth
+ms_auth --> api : Token Válido (Rol: Despachador)
+deactivate ms_auth
+
+api -> ms_pasajes : Enrutar: POST /pasajes/vender
+activate ms_pasajes
+
+ms_pasajes -> ms_pasajes : Validar disponibilidad\nde asientos (Máx 7)
+ms_pasajes -> ms_pasajes : Persistir venta en BD_Pasajes
+
+note right of ms_pasajes: Comunicación entre\nmicroservicios (Bajo acoplamiento)
+
+ms_pasajes -> ms_auditoria : API/Evento: Registrar\ningreso de caja
+activate ms_auditoria
+ms_auditoria -> ms_auditoria : Guardar en BD_Auditoria
+ms_auditoria --> ms_pasajes : 200 OK (Ingreso registrado)
+deactivate ms_auditoria
+
+ms_pasajes --> api : 201 Created (Boleto generado)
+deactivate ms_pasajes
+
+api --> web : 201 Created (Datos del boleto)
+deactivate api
+
+web --> despachador : Muestra Comprobante\n(Listo para imprimir)
+deactivate web
+
+@enduml
