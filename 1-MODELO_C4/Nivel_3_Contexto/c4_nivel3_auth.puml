@@ -1,0 +1,24 @@
+@startuml
+!theme plain
+skinparam rectangle {
+    BackgroundColor #85bbf0
+    BorderColor #438dd5
+}
+
+title Nivel 3: Componentes - Microservicio de Autenticación
+
+rectangle "API Gateway" as api #438dd5
+
+package "Microservicio de Autenticación" {
+    rectangle "Auth Controller\n[REST Controller]\n\nRecibe credenciales de login." as controller
+    rectangle "Auth Service (JWT)\n[Service]\n\nValida usuario/contraseña y\ngenera tokens de seguridad." as service
+    rectangle "Auth Repository\n[Repository]\n\nAcceso a datos de credenciales." as repository
+}
+
+database "BD Auth" as bd_auth #2b78e4
+
+api --> controller : POST /login
+controller --> service : Valida credenciales
+service --> repository : Consulta hash
+repository --> bd_auth : SQL
+@enduml

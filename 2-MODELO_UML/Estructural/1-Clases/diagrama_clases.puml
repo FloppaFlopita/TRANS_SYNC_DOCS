@@ -1,0 +1,86 @@
+@startuml
+!theme plain
+skinparam classAttributeIconSize 0
+
+title Diagrama de Clases (Por Microservicios) - TRANS-SYNC
+
+package "Dominio: MS Usuarios e Identidad" #f9f9f9 {
+    class Usuario {
+        - idUsuario: Long
+        - dni: String
+        - nombres: String
+        - apellidos: String
+        - credencial: String
+        + autenticar(): Boolean
+        + actualizarDatos(): void
+    }
+
+    enum Rol {
+        DUENO
+        DESPACHADOR
+        CONDUCTOR
+    }
+
+    Usuario -> Rol : "tiene 1"
+}
+
+package "Dominio: MS Pasajes" #f9f9f9 {
+    class Vehiculo {
+        - idVehiculo: Long
+        - placa: String
+        - capacidad: Integer = 7
+        - estadoMantenimiento: String
+        + reportarEstado(): void
+    }
+
+    class Ruta {
+        - idRuta: Long
+        - origen: String
+        - destino: String
+        - tarifaBase: Double
+        + consultarDisponibilidad(): Boolean
+    }
+
+    class Boleto {
+        - idBoleto: Long
+        - numeroAsiento: Integer
+        - fechaViaje: DateTime
+        - pasajeroDni: String
+        - pasajeroNombre: String
+        - totalPagado: Double
+        + emitirBoleto(): void
+        + anularBoleto(): void
+    }
+
+    Ruta "1" *-- "*" Boleto : "contiene"
+    Vehiculo "1" -- "*" Ruta : "asignado a"
+}
+
+package "Dominio: MS Encomiendas" #f9f9f9 {
+    class Encomienda {
+        - codigoTracking: String
+        - dniRemitente: String
+        - dniDestinatario: String
+        - descripcion: String
+        - pesoKg: Double
+        - precioCarga: Double
+        - estado: EstadoCarga
+        + generarEtiquetaQR(): void
+        + actualizarEstado(nuevoEstado): void
+    }
+
+    enum EstadoCarga {
+        EN_ALMACEN
+        EN_RUTA
+        ENTREGADO
+    }
+
+    Encomienda -> EstadoCarga : "tiene"
+}
+
+' Relaciones entre dominios (Lógicas, a través de IDs en la BD real)
+Usuario "1" ..> "*" Boleto : "vende (Despachador)"
+Usuario "1" ..> "*" Encomienda : "registra (Despachador)"
+Usuario "1" ..> "1" Vehiculo : "conduce (Conductor)"
+
+@enduml

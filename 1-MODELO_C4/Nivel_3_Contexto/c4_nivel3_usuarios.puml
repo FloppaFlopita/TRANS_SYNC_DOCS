@@ -1,0 +1,24 @@
+@startuml
+!theme plain
+skinparam rectangle {
+    BackgroundColor #85bbf0
+    BorderColor #438dd5
+}
+
+title Nivel 3: Componentes - Microservicio de Usuarios
+
+rectangle "API Gateway" as api #438dd5
+
+package "Microservicio de Usuarios" {
+    rectangle "Usuarios Controller\n[REST Controller]\n\nRecibe peticiones de perfiles." as controller
+    rectangle "Gestión de Empleados Service\n[Service]\n\nAsigna roles (Dueño, Conductor, Counter)." as service
+    rectangle "Usuarios Repository\n[Repository]\n\nAcceso a la información del personal." as repository
+}
+
+database "BD Usuarios" as bd_usuarios #2b78e4
+
+api --> controller : GET /usuarios\nPOST /roles
+controller --> service : Gestiona accesos
+service --> repository : Consulta/Guarda
+repository --> bd_usuarios : SQL
+@enduml

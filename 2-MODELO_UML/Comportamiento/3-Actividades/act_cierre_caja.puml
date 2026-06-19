@@ -1,0 +1,45 @@
+@startuml
+!theme plain
+skinparam ActivityBackgroundColor #e2e8f0
+skinparam ActivityBorderColor #475569
+
+title Diagrama de Actividad: Cierre de Caja y Liquidación
+
+|#LightBlue|Despachador (Counter)|
+start
+:Solicita cierre de caja del turno;
+
+|#LightGreen|Microservicio de Liquidación|
+:Consulta ventas en BD_Pasajes;
+:Consulta ingresos en BD_Encomiendas;
+:Calcula total recaudado y comisiones;
+:Genera reporte de pre-liquidación;
+
+|Despachador (Counter)|
+:Cuenta dinero físico en caja;
+:Compara dinero físico vs reporte del sistema;
+
+if (¿El monto físico coincide?) then (Sí)
+  :Aprueba liquidación;
+
+  |Microservicio de Liquidación|
+  :Registra estado "Cuadrado";
+
+else (No)
+  |Despachador (Counter)|
+  :Ingresa monto real físico;
+  :Escribe justificación (Faltante/Sobrante);
+
+  |Microservicio de Liquidación|
+  :Registra estado "Con Observaciones";
+  :Dispara alerta al Dueño del Negocio;
+endif
+
+|Microservicio de Liquidación|
+:Cierra turno activo;
+
+|Despachador (Counter)|
+:Imprime ticket de liquidación;
+stop
+
+@enduml

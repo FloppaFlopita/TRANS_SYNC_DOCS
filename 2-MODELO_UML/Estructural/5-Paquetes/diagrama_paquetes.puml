@@ -1,0 +1,53 @@
+@startuml
+!theme plain
+skinparam packageStyle folder
+skinparam backgroundColor #ffffff
+
+title Diagrama de Paquetes - Arquitectura Limpia (Microservicio Pasajes)
+
+package "pe.com.transsync.pasajes" #f0f8ff {
+
+    package "controller" #e6f2ff {
+        class PasajesController
+        note bottom: Expone las APIs\n(Endpoints REST)
+    }
+
+    package "service" #e6f2ff {
+        interface IPasajeService
+        class PasajeServiceImpl
+        note bottom: Reglas de negocio\ny validaciones
+    }
+
+    package "repository" #e6f2ff {
+        interface IPasajeRepository
+        note bottom: Consultas a\nla Base de Datos
+    }
+
+    package "model" #e6f2ff {
+        package "entity" {
+            class Boleto
+            class Ruta
+        }
+        package "dto" {
+            class VentaRequestDTO
+            class VentaResponseDTO
+        }
+    }
+
+    package "config" #e6f2ff {
+        class SecurityConfig
+        class SwaggerConfig
+    }
+}
+
+' Dependencias entre paquetes (Las flechas muestran quién llama a quién)
+controller ..> service : " usa"
+controller ..> dto : " recibe/envía"
+
+service ..> repository : " usa"
+service ..> entity : " procesa"
+service ..> dto : " mapea"
+
+repository ..> entity : " persiste"
+
+@enduml

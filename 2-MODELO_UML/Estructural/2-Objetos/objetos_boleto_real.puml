@@ -1,0 +1,39 @@
+@startuml
+!theme plain
+skinparam object {
+    BackgroundColor #fdfbf7
+    BorderColor #333333
+}
+
+title Diagrama de Objetos: Snapshot de una Venta (19 de Junio)
+
+object "juanPerez : Usuario" as usr {
+  rol = "PASAJERO"
+  dni = "70123456"
+  nombres = "Juan"
+}
+
+object "ruta_105 : Ruta" as ruta {
+  origen = "Juliaca"
+  destino = "Cusco"
+  tarifaBase = 50.00
+}
+
+object "boleto_A3 : Boleto" as boleto {
+  idBoleto = "TK-9901"
+  numeroAsiento = 3
+  fechaViaje = "2026-06-19 10:30 AM"
+  estado = "PAGADO"
+}
+
+object "minivan_V1 : Vehiculo" as vehiculo {
+  placa = "Z4A-123"
+  capacidad = 7
+  asientosOcupados = 4
+}
+
+usr -- boleto : " compra"
+boleto -- ruta : " pertenece a"
+ruta -- vehiculo : " asignada a"
+
+@enduml

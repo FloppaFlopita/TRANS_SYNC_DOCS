@@ -1,0 +1,27 @@
+@startuml
+!theme plain
+skinparam rectangle {
+    BackgroundColor #1168bd
+    FontColor white
+    BorderColor #0b4884
+}
+skinparam actor {
+    BackgroundColor #08427b
+    BorderColor #08427b
+}
+
+title Nivel 1: Diagrama de Contexto - TRANS-SYNC
+
+actor "Despachador (Counter)" as despachador
+actor "Conductor" as conductor
+actor "Dueño del Negocio" as dueno
+actor "Pasajero" as pasajero
+
+rectangle "Sistema TRANS-SYNC\n[Sistema de Software]\n\nPermite la gestión de pasajes, encomiendas,\nrutas y liquidaciones en tiempo real." as sistema
+
+despachador --> sistema : Vende pasajes y registra encomiendas
+conductor --> sistema : Reporta ubicación y estado de entrega
+dueno --> sistema : Supervisa rentabilidad y rutas
+pasajero --> sistema : Compra boletos y consulta envíos
+
+@enduml

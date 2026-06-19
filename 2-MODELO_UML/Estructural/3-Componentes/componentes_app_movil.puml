@@ -1,0 +1,37 @@
+@startuml
+!theme plain
+skinparam componentStyle uml2
+
+title Diagrama de Componentes UML - Conexión App Móvil
+
+package "Capa Cliente" {
+  component "App Móvil (Conductores)" as appMovil
+}
+
+package "Capa Servidor (TRANS-SYNC)" {
+  component "API Gateway" as apiGateway
+
+  component "Microservicio\nAutenticación" as msAuth {
+    port " " as pAuth
+  }
+
+  component "Microservicio\nEncomiendas" as msEnc {
+    port " " as pEnc
+  }
+
+  interface "I_Seguridad (JWT)" as iAuth
+  interface "I_Logística (REST)" as iEnc
+}
+
+' Conexiones de la app al Gateway
+appMovil -down-> apiGateway : <<usa>> JSON/HTTPS
+
+' Gateway consumiendo interfaces
+apiGateway -down-> iAuth
+apiGateway -down-> iEnc
+
+' Microservicios proveyendo interfaces (el enchufe)
+iAuth - pAuth
+iEnc - pEnc
+
+@enduml

@@ -1,0 +1,54 @@
+@startuml
+!theme plain
+skinparam class {
+    BackgroundColor #ffffff
+    BorderColor #0b4884
+}
+
+title Diagrama de Perfiles - Extensión para Microservicios (Spring Boot)
+
+' Definición del Perfil
+package "<<profile>>\nSpring Boot Backend" #e6f2ff {
+
+    class "<<metaclass>>\nClass (UML Estándar)" as metaClass #f4f4f4
+
+    class "<<stereotype>>\nRestController" as rest {
+        + endpoint: String
+    }
+
+    class "<<stereotype>>\nService" as serv {
+        + isTransactional: Boolean
+    }
+
+    class "<<stereotype>>\nRepository" as repo
+
+    class "<<stereotype>>\nEntity" as ent {
+        + tableName: String
+    }
+
+    rest -up-> metaClass : <<extends>>
+    serv -up-> metaClass : <<extends>>
+    repo -up-> metaClass : <<extends>>
+    ent -up-> metaClass : <<extends>>
+}
+
+' Aplicación del Perfil en la vida real
+package "Aplicación del Perfil (TRANS-SYNC: MS Encomiendas)" #f9f9f9 {
+
+    class "EncomiendasController" as ec <<RestController>> {
+        endpoint = "/api/encomiendas"
+    }
+
+    class "LogisticaService" as ls <<Service>> {
+        isTransactional = true
+    }
+
+    class "EncomiendaDB" as edb <<Entity>> {
+        tableName = "tb_encomiendas_2026"
+    }
+
+    ec .right.> ls : <<usa>>
+    ls .right.> edb : <<procesa>>
+}
+
+@enduml
