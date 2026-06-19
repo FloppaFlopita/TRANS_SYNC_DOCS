@@ -1,0 +1,39 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Despachador (Counter)" as counter
+actor "Pasajero" as pasajero
+actor "Pasarela de Pagos (Visa/Niubiz)" as pasarela
+
+rectangle "Subsistema: Venta y Control de Pasajes" {
+
+  usecase "Consultar Disponibilidad de Asientos" as UC_Buscar
+  usecase "Registrar Datos del Pasajero" as UC_Cliente
+  usecase "Vender Boleto de Viaje" as UC_Vender
+  usecase "Emitir Ticket Electrónico" as UC_Ticket
+  usecase "Seleccionar Asiento en Minivan" as UC_Asiento
+  usecase "Procesar Pago con Tarjeta" as UC_PagoCard
+  usecase "Modificar/Reprogramar Fecha de Viaje" as UC_Reprogramar
+}
+
+' Interacciones del Counter (Venta Física)
+counter --> UC_Buscar
+counter --> UC_Vender
+counter --> UC_Reprogramar
+
+' Interacciones del Pasajero
+pasajero --> UC_Buscar
+pasajero --> UC_Vender
+
+' Inclusiones y Extensiones
+UC_Vender ..> UC_Cliente : <<include>>
+UC_Vender ..> UC_Asiento : <<include>>
+UC_Vender ..> UC_Ticket : <<include>>
+
+UC_Vender <.. UC_PagoCard : <<extend>> (Si paga con tarjeta)
+
+' Conexión con actor externo
+UC_PagoCard --> pasarela
+
+@enduml
