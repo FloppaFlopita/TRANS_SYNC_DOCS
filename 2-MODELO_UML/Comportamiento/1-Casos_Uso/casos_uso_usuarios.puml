@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Dueño del Negocio" as admin
+actor "Sistema (MS Usuarios)" as sys
+
+rectangle "Subsistema: Gestión de Usuarios y Personal" {
+
+  usecase "Registrar Nuevo Empleado" as UC_Crear
+  usecase "Asignar Rol y Permisos\n(Conductor, Counter, Dueño)" as UC_AsignarRol
+  usecase "Modificar Datos de Personal" as UC_Editar
+  usecase "Desactivar Cuenta de Usuario\n(Dar de Baja)" as UC_Baja
+  usecase "Consultar Historial de Accesos" as UC_Auditar
+
+  usecase "Validar DNI con RENIEC" as UC_Reniec
+}
+
+' Relaciones del Administrador (Dueño)
+admin --> UC_Crear
+admin --> UC_Editar
+admin --> UC_Baja
+admin --> UC_Auditar
+
+' Extensiones e Inclusiones
+UC_Crear ..> UC_AsignarRol : <<include>>
+UC_Crear ..> UC_Reniec : <<include>>
+
+' Relación con el Sistema externo o backend
+UC_Reniec --> sys
+
+@enduml
