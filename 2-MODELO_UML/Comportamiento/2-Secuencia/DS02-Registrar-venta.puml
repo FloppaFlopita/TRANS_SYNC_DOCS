@@ -1,0 +1,29 @@
+@startuml
+title Diagrama de estados de la clase "Venta"
+[*]--> PENDIENTE : Vendedor inicializa la venta\n[Crear instancia]
+
+state PENDIENTE {
+
+    [*] --> EdicionVenta
+    EdicionVenta : do / añadirDetalle()
+    EdicionVenta : do / calcularTotal()
+
+}
+PENDIENTE --> VerificarPago : registarPago()
+
+state VerificarPago <<choice>>
+
+VerificarPago --> PAGADA : [pago aprobado]
+VerificarPago --> PENDIENTE : [pago rechazado]
+
+PENDIENTE --> ANULADA : cancelarOperacion()
+
+PAGADA --> EvaluarAnulacion : anularVenta()
+
+state EvaluarAnulacion <<choice>>
+EvaluarAnulacion --> ANULADA : [Autorizada]
+
+ANULADA --> [*]
+PAGADA --> [*] : cierreCaja()
+
+@enduml
