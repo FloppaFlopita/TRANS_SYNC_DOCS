@@ -22,3 +22,4 @@ controller --> service : Calcula ingresos
 service --> repository : Guarda log
 repository --> bd_auditoria : SQL
 @enduml
+
