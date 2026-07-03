@@ -27,4 +27,8 @@ A diferencia de los diagramas de secuencia que priorizan el tiempo, este diagram
 2. **Renderizado:** Requiere el uso de la extensión oficial de **PlantUML** en tu entorno para procesar diagramas de colaboración de objetos estándar.
 3. **Previsualización:** Presiona la combinación de teclas `Alt + D` para generar de manera automática el esquema gráfico relacional y exportarlo en formato de imagen `.png`, listo para los anexos de la documentación de **Synergy6**.
 
-https://img.plantuml.biz/plantuml/png/NPBFJjj04CRlblmENzDBSeZ2dmWX7ohIOAeYGKi8ujBBn3in2-jTTxm-eJuI9nuXByQi4XIeJ-kTRtxpxRTxraMIs3Skpxx41suOhIFhyypnEY86YAqV8emLhg8DMkYUh6z9g47Q8byxndEUGR_lL3tL4dflvi45mLS-MH-jrxjY4CEoAnoifgUdqppxbsTv5crKnhcbMga4mvY7flUseifkNds11NLHc0Ibhq9ZsHl2S2P_UnlLGY-4g-23sxn4xHabvDxQu3TrzCWIC9mxROqy6e0wLDkVJz82ixR5FQyml92WLM-sOchR_uHNcrVJk_31KVV73rC0kiPSqK9kszo4f4okTZCn7dzBI1GuBF3Jry8TeLAYhGEMeX3hQzmiyYofadhBq8QZ0Z_A9IRKsWdlPq-UhT4iTx8z_rZ3unZ44qgzQQCfb8y51kKr5dVBsG1ZNDx-kXxj9xrxB33LK_QioHFwrVjbW3HmSc2FbdmavoYTx4nTw2Dw0m00
+---
+
+## 🖼️ Vista Previa del Diagrama
+
+![Diagrama de Comunicación](https://img.plantuml.biz/plantuml/png/NPBFJjj04CRlblmENzDBSeZ2dmWX7ohIOAeYGKi8ujBBn3in2-jTTxm-eJuI9nuXByQi4XIeJ-kTRtxpxRTxraMIs3Skpxx41suOhIFhyypnEY86YAqV8emLhg8DMkYUh6z9g47Q8byxndEUGR_lL3tL4dflvi45mLS-MH-jrxjY4CEoAnoifgUdqppxbsTv5crKnhcbMga4mvY7flUseifkNds11NLHc0Ibhq9ZsHl2S2P_UnlLGY-4g-23sxn4xHabvDxQu3TrzCWIC9mxROqy6e0wLDkVJz82ixR5FQyml92WLM-sOchR_uHNcrVJk_31KVV73rC0kiPSqK9kszo4f4okTZCn7dzBI1GuBF3Jry8TeLAYhGEMeX3hQzmiyYofadhBq8QZ0Z_A9IRKsWdlPq-UhT4iTx8z_rZ3unZ44qgzQQCfb8y51kKr5dVBsG1ZNDx-kXxj9xrxB33LK_QioHFwrVjbW3HmSc2FbdmavoYTx4nTw2Dw0m00)
