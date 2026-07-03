@@ -4,9 +4,9 @@ Este directorio contiene los artefactos de modelado técnico para el **Diagrama 
 
 ## 📂 Estructura del Directorio
 
-Tal como se detalla en el árbol de archivos actual (ver `image_3393e3.png`), este directorio está compuesto por los siguientes recursos:
+Tal como se detalla en el árbol de archivos actual, este directorio está compuesto por los siguientes recursos:
 
-* **📄 `perfil_springboot.puml`:** Script de PlantUML que define el perfil personalizado para Spring Boot, mapeando los conceptos propios de la arquitectura limpia y el ecosistema de microservicios sobre elementos estándar de UML.
+* **📄 `perfil_springboot.puml`:** Script de PlantUML que define el perfil personalizado para Spring Boot, mapeando los conceptos propios de la arquitectura limpia y el diseño del monolito modular sobre elementos estándar de UML.
 * **📄 `Readme.md`:** Documentación guía del directorio actual.
 
 ---
@@ -15,9 +15,9 @@ Tal como se detalla en el árbol de archivos actual (ver `image_3393e3.png`), es
 
 El archivo `perfil_springboot.puml` representa la semántica técnica específica del desarrollo backend construida por **Synergy6** para guiar el diseño estructural de **TRANS-SYNC**:
 
-1. **Estereotipos de Componentes:** Define marcas semánticas personalizadas (como `«RestController»`, `«Service»`, y `«Repository»`) para clasificar de manera precisa las clases lógicas según su comportamiento dentro del framework.
+1. **Estereotipos de Componentes:** Define marcas semánticas personalizadas (como `«RestController»`, `«Service»`, y `«Repository»`) para clasificar de manera precisa las clases lógicas según su comportamiento dentro del framework de la aplicación central.
 2. **Inyección de Dependencias (DI):** Modela cómo se representan las anotaciones de gestión de inversión de control (como `«Autowired»` o `«Inject»`) sobre las relaciones lógicas del diagrama de clases.
-3. **Persistencia y Entidades:** Introduce estereotipos especializados como `«Entity»`, `«Table»`, y `«Id»` para denotar componentes destinados al mapeo objeto-relacional (ORM) con las bases de datos lógicas independientes.
+3. **Persistencia y Entidades:** Introduce estereotipos especializados como `«Entity»`, `«Table»`, y `«Id»` para denotar componentes destinados al mapeo objeto-relacional (ORM) con la base de datos centralizada.
 
 Este mecanismo de extensiones proporciona un vocabulario común unificado que permite a los diagramas estructurales del proyecto reflejar de manera exacta la implementación real en código fuente.
 
