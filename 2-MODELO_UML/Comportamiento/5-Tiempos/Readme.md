@@ -28,4 +28,8 @@ El diagrama contenido en este módulo especifica con alta precisión el comporta
 2.  **Renderizado:** Asegúrate de contar con la extensión oficial de **PlantUML** instalada en tu entorno de desarrollo para procesar la sintaxis de diagramas de tiempo (`@robust` o `@concise`).
 3.  **Previsualización:** Presiona la combinación de teclas `Alt + D` para procesar el código en tiempo real y exportar el diagrama estructurado en formato de imagen `.png`, dejándolo listo para anexarlo a la sección de análisis avanzado de tu informe de **Synergy6**.
 
-https://img.plantuml.biz/plantuml/png/XP7HQi8m58Rl0ts7Cw-s2w5rUg5NXhHAn4PfesExALaDcf4sfKdtLdkAlTYoJXmEP1U1m7--_-CaS-j4wxfA1-ZEdMGbeT52rG5ooca9iHB7LbG23XAuabLZx0psIhn9M7LQYLB044XdImFtgQhLkwZXPOo7qUZH1xcoJdeuDRNHdnzEbUOXG05gpMjd7GmIBpyOE8C341Qgdtk0IbENoaeOuARnTWt4r8UkTARjvqJJV3VDmm2T4L0M4bRm94ifm-jYjLjJJ720_EXtHZOi8Hp7c-A9BcWFHvE_TBRZlmJFCCjJocd2FBNSviLusNFJQ-iMPpZ6tamO9RZ0ptXFC_f_JHJUyFjiDBwz6TdbP7EfNr1MnCc5FAdZIVlZ89g0Cp0DOGRS_w61w2eD-zXxBlceDql_p9N-0W00
+---
+
+## 🖼️ Vista Previa del Diagrama
+
+![Diagrama de Tiempos de Reserva](https://img.plantuml.biz/plantuml/png/XP7HQi8m58Rl0ts7Cw-s2w5rUg5NXhHAn4PfesExALaDcf4sfKdtLdkAlTYoJXmEP1U1m7--_-CaS-j4wxfA1-ZEdMGbeT52rG5ooca9iHB7LbG23XAuabLZx0psIhn9M7LQYLB044XdImFtgQhLkwZXPOo7qUZH1xcoJdeuDRNHdnzEbUOXG05gpMjd7GmIBpyOE8C341Qgdtk0IbENoaeOuARnTWt4r8UkTARjvqJJV3VDmm2T4L0M4bRm94ifm-jYjLjJJ720_EXtHZOi8Hp7c-A9BcWFHvE_TBRZlmJFCCjJocd2FBNSviLusNFJQ-iMPpZ6tamO9RZ0ptXFC_f_JHJUyFjiDBwz6TdbP7EfNr1MnCc5FAdZIVlZ89g0Cp0DOGRS_w61w2eD-zXxBlceDql_p9N-0W00)
