@@ -1,0 +1,38 @@
+    @startuml
+    left to right direction
+    skinparam node {
+        BackgroundColor #f4f4f4
+        BorderColor #333333
+    }
+
+    title Anexo H: Representación conceptual (Arquitectura Monolítica)
+
+    node "Clientes (Frontend)" {
+        [App Web (Terminales)]
+        [App Móvil (Conductores)]
+    }
+
+    node "Servidor Central (Backend)" {
+        node "Sistema TRANS-SYNC" {
+            [Módulo Autenticación]
+            [Módulo Usuarios]
+            [Módulo Pasajes]
+            [Módulo Encomiendas]
+            [Módulo Liquidación]
+        }
+    }
+
+    database "Base de Datos Unificada" {
+        (BD Central TRANS-SYNC)
+    }
+
+    [App Web (Terminales)] --> [Sistema TRANS-SYNC] : Peticiones HTTP
+    [App Móvil (Conductores)] --> [Sistema TRANS-SYNC] : Peticiones HTTP
+
+    [Módulo Autenticación] --> (BD Central TRANS-SYNC)
+    [Módulo Usuarios] --> (BD Central TRANS-SYNC)
+    [Módulo Pasajes] --> (BD Central TRANS-SYNC)
+    [Módulo Encomiendas] --> (BD Central TRANS-SYNC)
+    [Módulo Liquidación] --> (BD Central TRANS-SYNC)
+
+    @enduml
