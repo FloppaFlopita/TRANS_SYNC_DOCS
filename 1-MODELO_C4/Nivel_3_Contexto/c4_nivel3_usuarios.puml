@@ -5,17 +5,17 @@ skinparam rectangle {
     BorderColor #438dd5
 }
 
-title Nivel 3: Componentes - Microservicio de Usuarios
+title Nivel 3: Componentes - Módulo de Usuarios (Monolito)
 
-rectangle "API Gateway" as api #438dd5
+rectangle "Peticiones Externas (Frontend)" as api #438dd5
 
-package "Microservicio de Usuarios" {
+package "Módulo de Usuarios" {
     rectangle "Usuarios Controller\n[REST Controller]\n\nRecibe peticiones de perfiles." as controller
     rectangle "Gestión de Empleados Service\n[Service]\n\nAsigna roles (Dueño, Conductor, Counter)." as service
     rectangle "Usuarios Repository\n[Repository]\n\nAcceso a la información del personal." as repository
 }
 
-database "BD Usuarios" as bd_usuarios #2b78e4
+database "BD Central\n(Esquema Usuarios)" as bd_usuarios #2b78e4
 
 api --> controller : GET /usuarios\nPOST /roles
 controller --> service : Gestiona accesos

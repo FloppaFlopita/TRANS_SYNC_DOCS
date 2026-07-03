@@ -5,17 +5,17 @@ skinparam rectangle {
     BorderColor #438dd5
 }
 
-title Nivel 3: Componentes - Microservicio de Encomiendas
+title Nivel 3: Componentes - Módulo de Encomiendas (Monolito)
 
-rectangle "API Gateway" as api #438dd5
+rectangle "Peticiones Externas (Frontend)" as api #438dd5
 
-package "Microservicio de Encomiendas" {
+package "Módulo de Encomiendas" {
     rectangle "Encomiendas Controller\n[REST Controller]\n\nRecibe envíos y consultas de rastreo." as controller
     rectangle "Gestión Logística Service\n[Service]\n\nRegistra peso, genera código QR/Tracking\ny actualiza estados (en ruta, entregado)." as service
     rectangle "Encomiendas Repository\n[Repository]\n\nGuarda el historial de la carga." as repository
 }
 
-database "BD Encomiendas" as bd_encomiendas #2b78e4
+database "BD Central\n(Esquema Encomiendas)" as bd_encomiendas #2b78e4
 
 api --> controller : POST /encomiendas
 controller --> service : Procesa carga

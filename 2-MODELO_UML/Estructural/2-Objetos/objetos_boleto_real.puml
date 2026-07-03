@@ -5,7 +5,7 @@ skinparam object {
     BorderColor #333333
 }
 
-title Diagrama de Objetos: Snapshot de una Venta (19 de Junio)
+title Diagrama de Objetos: Snapshot de una Venta - TRANS-SYNC (Arquitectura Monolítica)
 
 object "juanPerez : Usuario" as usr {
   rol = "PASAJERO"

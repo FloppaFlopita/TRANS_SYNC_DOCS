@@ -10,14 +10,14 @@ skinparam actor {
     BorderColor #08427b
 }
 
-title Nivel 1: Diagrama de Contexto - TRANS-SYNC
+title Nivel 1: Diagrama de Contexto - TRANS-SYNC (Arquitectura Monolítica)
 
 actor "Despachador (Counter)" as despachador
 actor "Conductor" as conductor
 actor "Dueño del Negocio" as dueno
 actor "Pasajero" as pasajero
 
-rectangle "Sistema TRANS-SYNC\n[Sistema de Software]\n\nPermite la gestión de pasajes, encomiendas,\nrutas y liquidaciones en tiempo real." as sistema
+rectangle "Sistema TRANS-SYNC\n[Sistema de Software Monolítico]\n\nPermite la gestión centralizada de pasajes, encomiendas,\nrutas y liquidaciones en tiempo real." as sistema
 
 despachador --> sistema : Vende pasajes y registra encomiendas
 conductor --> sistema : Reporta ubicación y estado de entrega

@@ -6,17 +6,17 @@ skinparam rectangle {
     BorderColor #438dd5
 }
 
-title Nivel 3: Diagrama de Componentes - Microservicio de Pasajes
+title Nivel 3: Diagrama de Componentes - Módulo de Pasajes (Monolito)
 
-rectangle "API Gateway" as api #438dd5
+rectangle "Peticiones Externas (Frontend)" as api #438dd5
 
-package "Microservicio de Pasajes" {
+package "Módulo de Pasajes" {
     rectangle "Pasajes Controller\n[Componente: REST Controller]\n\nRecibe peticiones HTTP\npara venta y consulta." as controller
     rectangle "Gestión de Rutas y Asientos Service\n[Componente: Service]\n\nLógica de negocio:\nvalidar asientos, precios y rutas." as service
     rectangle "Pasajes Repository\n[Componente: Repository]\n\nInteractúa con la base de datos." as repository
 }
 
-database "BD Pasajes\n[PostgreSQL]" as bd_pasajes #2b78e4
+database "BD Central\n(Esquema Pasajes)\n[PostgreSQL]" as bd_pasajes #2b78e4
 
 api --> controller : POST /ventas\nGET /rutas
 controller --> service : Llama métodos

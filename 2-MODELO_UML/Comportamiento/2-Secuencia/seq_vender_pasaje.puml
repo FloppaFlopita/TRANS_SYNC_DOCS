@@ -6,47 +6,43 @@ skinparam participant {
     BorderColor #475569
 }
 
-title Diagrama de Secuencia: Vender un Pasaje (Microservicios)
+title Diagrama de Secuencia: Vender un Pasaje (Arquitectura Monolítica)
 
 actor "Despachador\n(Counter)" as despachador
 participant "App Web\n(Frontend)" as web
-participant "API Gateway" as api
-participant "MS Autenticación" as ms_auth
-participant "MS Pasajes" as ms_pasajes
-participant "MS Liquidación\n(Auditoría)" as ms_auditoria
+participant "Módulo Autenticación\n(Filtro Spring Security)" as mod_auth
+participant "Módulo Pasajes\n(Service)" as mod_pasajes
+participant "Módulo Liquidación\n(Auditoría Service)" as mod_auditoria
 
 despachador -> web : Selecciona ruta, asiento,\ningresa DNI y confirma venta
 activate web
 
-web -> api : POST /api/ventas\n(Header: Token JWT)
-activate api
+web -> mod_auth : POST /api/ventas\n(Header: Token JWT)
+activate mod_auth
 
-note right of api: El API Gateway intercepta\nla petición por seguridad
+note right of mod_auth: El filtro intercepta\nla petición por seguridad
 
-api -> ms_auth : Validar Token JWT
-activate ms_auth
-ms_auth --> api : Token Válido (Rol: Despachador)
-deactivate ms_auth
+mod_auth -> mod_auth : Validar Token JWT\n(Rol: Despachador)
 
-api -> ms_pasajes : Enrutar: POST /pasajes/vender
-activate ms_pasajes
+mod_auth -> mod_pasajes : Invocación interna:\nvenderPasaje(datos)
+activate mod_pasajes
 
-ms_pasajes -> ms_pasajes : Validar disponibilidad\nde asientos (Máx 7)
-ms_pasajes -> ms_pasajes : Persistir venta en BD_Pasajes
+mod_pasajes -> mod_pasajes : Validar disponibilidad\nde asientos (Máx 7)
+mod_pasajes -> mod_pasajes : Persistir venta en BD Central
 
-note right of ms_pasajes: Comunicación entre\nmicroservicios (Bajo acoplamiento)
+note right of mod_pasajes: Comunicación directa\nmediante llamadas a métodos locales
 
-ms_pasajes -> ms_auditoria : API/Evento: Registrar\ningreso de caja
-activate ms_auditoria
-ms_auditoria -> ms_auditoria : Guardar en BD_Auditoria
-ms_auditoria --> ms_pasajes : 200 OK (Ingreso registrado)
-deactivate ms_auditoria
+mod_pasajes -> mod_auditoria : Invocación: registrarIngresoCaja(monto, despachador)
+activate mod_auditoria
+mod_auditoria -> mod_auditoria : Guardar log en BD Central
+mod_auditoria --> mod_pasajes : Retorno de ejecución (void/OK)
+deactivate mod_auditoria
 
-ms_pasajes --> api : 201 Created (Boleto generado)
-deactivate ms_pasajes
+mod_pasajes --> mod_auth : Objeto Boleto generado
+deactivate mod_pasajes
 
-api --> web : 201 Created (Datos del boleto)
-deactivate api
+mod_auth --> web : 201 Created (Datos del boleto JSON)
+deactivate mod_auth
 
 web --> despachador : Muestra Comprobante\n(Listo para imprimir)
 deactivate web

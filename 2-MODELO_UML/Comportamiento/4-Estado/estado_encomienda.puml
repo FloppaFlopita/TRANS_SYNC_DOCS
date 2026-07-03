@@ -1,7 +1,7 @@
 @startuml
 !theme plain
 
-title Ciclo de Vida de una Encomienda (Trazabilidad) - TRANS-SYNC
+title Ciclo de Vida de una Encomienda (Arquitectura Monolítica) - TRANS-SYNC
 
 [*] --> EN_ALMACEN_ORIGEN : Counter registra paquete\n(Genera QR y Tracking)
 

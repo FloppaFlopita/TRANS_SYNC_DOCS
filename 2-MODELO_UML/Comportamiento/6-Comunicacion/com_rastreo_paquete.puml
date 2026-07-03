@@ -6,18 +6,15 @@ skinparam rectangle {
     BorderColor #0b4884
 }
 
-title Diagrama de Comunicación: Rastrear Encomienda (Tracking)
+title Diagrama de Comunicación: Rastrear Encomienda (Arquitectura Monolítica)
 
 rectangle "Pasajero (Cliente)" as cliente
 rectangle ": App Web (Frontend)" as app
-rectangle ": API Gateway" as api
-rectangle ": MS Encomiendas" as ms
+rectangle ": Módulo Encomiendas\n(Backend Central)" as modulo
 
 cliente --> app : 1: Ingresa código Tracking QR
-app --> api : 2: GET /api/encomiendas/{id}
-api --> ms : 3: Enrutar petición de consulta
-ms --> api : 4: Retorna Estado (Ej: "EN RUTA")
-api --> app : 5: 200 OK (Datos JSON)
-app --> cliente : 6: Muestra ubicación actual en pantalla
+app --> modulo : 2: GET /api/encomiendas/{id}
+modulo --> app : 3: Retorna Estado (Ej: "EN RUTA" - JSON)
+app --> cliente : 4: Muestra ubicación actual en pantalla
 
 @enduml
