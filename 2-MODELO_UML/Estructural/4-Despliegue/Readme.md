@@ -1,12 +1,12 @@
 # 🚀 4-Despliegue — Diagrama de Despliegue de TRANS-SYNC
 
-Este directorio contiene los artefactos de modelado técnico para el **Diagrama de Despliegue** del sistema **TRANS-SYNC**, desarrollado bajo el estándar UML. El objetivo de este módulo es mapear la arquitectura física y de red de la infraestructura, especificando cómo se distribuyen los nodos de hardware, los entornos de ejecución, los contenedores aislados y la topología de base de datos distribuidas del proyecto.
+Este directorio contiene los artefactos de modelado técnico para el **Diagrama de Despliegue** del sistema **TRANS-SYNC**, desarrollado bajo el estándar UML. El objetivo de este módulo es mapear la arquitectura física y de red de la infraestructura, especificando cómo se distribuyen los nodos de hardware, el entorno de ejecución del monolito y la base de datos del proyecto.
 
 ## 📂 Estructura del Directorio
 
-Tal como se detalla en el árbol de archivos actual (ver `image_33905d.png`), este directorio está compuesto por los siguientes recursos:
+Tal como se detalla en el árbol de archivos actual, este directorio está compuesto por los siguientes recursos:
 
-* **📄 `diagrama_despliegue.puml`:** Script de PlantUML que define la distribución física de los servidores, contenedores Docker, redes internas y almacenamiento de bases de datos para el ecosistema completo.
+* **📄 `diagrama_despliegue.puml`:** Script de PlantUML que define la distribución física de los servidores, el contenedor principal de la aplicación, las redes internas y el almacenamiento de la base de datos.
 * **📄 `Readme.md`:** Documentación guía del directorio actual.
 
 ---
@@ -15,11 +15,11 @@ Tal como se detalla en el árbol de archivos actual (ver `image_33905d.png`), es
 
 El archivo `diagrama_despliegue.puml` valida e ilustra de manera exacta la infraestructura de producción planificada por **Synergy6** para operar en las sedes de **Transportes Veloz Altiplano E.I.R.L.**:
 
-1. **Servidor en la Nube (Cloud Infrastructure):** Modelado del servidor virtual centralizado (VPS/AWS Node) que aloja los servicios internos.
-2. **Entorno de Contenedores (Docker & Docker Compose):** Nodos lógicos que agrupan y ejecutan de manera aislada los entornos de ejecución independientes para cada microservicio backend (Java Spring, Node.js y .NET).
-3. **Punto Perimetral (API Gateway Node):** Configuración del servidor Nginx/Ocelot encargado de recibir las solicitudes de red HTTPS/JSON de los clientes y enrutarlas por la red privada virtual interna.
-4. **Persistencia de Datos (Database Cluster):** Demostración visual del patrón *Database-per-Service*, detallando los nodos independientes de almacenamiento PostgreSQL asignados exclusivamente a sus microservicios core correspondientes.
-5. **Nodos de Dispositivos Cliente (Client Nodes):** Computadoras físicas en las terminales de counter de Juliaca y Cusco para la aplicación web (React) y teléfonos móviles de los choferes para la aplicación nativa (Flutter).
+1. **Servidor en la Nube (Cloud Infrastructure):** Modelado del servidor virtual centralizado (VPS/AWS Node) que aloja el sistema.
+2. **Entorno de Ejecución Central (Monolito Modular):** Nodo lógico que aloja el contenedor de la aplicación principal (ej. Spring Boot), donde conviven todos los módulos de negocio altamente cohesivos.
+3. **Servidor Web / Proxy Inverso:** Configuración del servidor (ej. Nginx) encargado de recibir las solicitudes de red HTTPS/JSON de los clientes y enrutarlas directamente a la aplicación central por la red privada.
+4. **Persistencia de Datos (Base de Datos Centralizada):** Demostración visual del nodo de almacenamiento relacional (PostgreSQL) compartido por todos los módulos del sistema, garantizando la integridad transaccional (ACID).
+5. **Nodos de Dispositivos Cliente (Client Nodes):** Computadoras físicas en las terminales de counter de Juliaca y Cusco para la aplicación web (React) y teléfonos móviles de los conductores para la aplicación nativa (Flutter).
 
 ---
 
