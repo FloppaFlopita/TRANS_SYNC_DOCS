@@ -1,16 +1,4 @@
-# 📦 Nivel 2: Diagrama de Contenedores — TRANS-SYNC
-
-Este directorio alberga el diseño de **Nivel 2 (Contenedores)** bajo el enfoque del Modelo C4, además del mapeo estructural de servicios del sistema **TRANS-SYNC**[cite: 1]. En este nivel se define la distribución tecnológica de la plataforma, detallando las aplicaciones frontales, el punto de control perimetral y el desacoplamiento de los servicios backend con sus respectivas bases de datos independientes[cite: 1].
-
-## 📂 Estructura del Directorio
-
-De acuerdo con la estructura del directorio (ver `image_299301.png`), este módulo contiene los siguientes recursos de modelado[cite: 1]:
-
-*   **📄 `c4_nivel2_containers.puml`:** Archivo fuente PlantUML que implementa la sintaxis de la librería `C4_Container.puml`[cite: 1]. Muestra la interacción de las aplicaciones cliente con el API Gateway y los límites lógicos de cada microservicio[cite: 1].
-*   **📄 `arquitectura_microservicios.puml`:** Código PlantUML que representa la distribución física conceptual del ecosistema de microservicios, haciendo énfasis en el pilar fundamental de la independencia de almacenamiento (Database-per-Service)[cite: 1].
-*   **📄 `Readme.md`:** Documentación e instrucciones del directorio actual[cite: 1].
-
----
+Nivel 2: Diagrama de Contenedores — TRANS-SYNC (Monolito)Este directorio alberga el diseño de Nivel 2 (Contenedores) bajo el enfoque del Modelo C4, detallando la estructura del sistema TRANS-SYNC bajo una Arquitectura Monolítica. En este nivel se define la distribución centralizada de la plataforma, donde las aplicaciones frontales se comunican directamente con un único servidor backend que gestiona una base de datos unificada.
 
 ## 🔍 Descripción de los Contenedores Centrales
 
@@ -27,7 +15,7 @@ El modelado describe los componentes de software clave que integran el ecosistem
 
 ---
 
-## 🛠️ Visualización y Renderizado
+## 🛠️ Visualización y Renderi   zado
 
 Para previsualizar o compilar los diagramas:
 1. Abre `c4_nivel2_containers.puml` o `arquitectura_microservicios.puml` en VS Code[cite: 1].
