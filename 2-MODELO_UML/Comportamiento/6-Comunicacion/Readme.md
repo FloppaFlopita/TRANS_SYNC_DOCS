@@ -15,9 +15,9 @@ Tal como se detalla en el árbol de archivos, este directorio está compuesto po
 
 A diferencia de los diagramas de secuencia que priorizan el tiempo, este diagrama (`com_rastreo_paquete.puml`) se enfoca en la arquitectura de las conexiones lógicas dentro del ecosistema de **Transportes Veloz Altiplano E.I.R.L.**:
 
-1. **Rastreo de Paquetes:** Describe la arquitectura de mensajería desde que el cliente consulta un estado de envío mediante la app frontal o web, pasando por el API Gateway, hasta la interacción directa con el Microservicio de Encomiendas.
-2. **Arquitectura de Red Orientada a Objetos:** Muestra con claridad qué controladores, servicios y repositorios específicos necesitan estar enlazados lógicamente para devolver la trazabilidad de los paquetes en tiempo real.
-3. **Bajo Acoplamiento:** Valida que las llamadas de mensajería sigan caminos específicos y respeten las fronteras de las APIs expuestas por cada contenedor.
+1. **Rastreo de Paquetes:** Describe la arquitectura de mensajería desde que el cliente consulta un estado de envío mediante la app frontal o web, hasta la interacción directa con el módulo de Encomiendas en el backend central.
+2. **Arquitectura Orientada a Objetos:** Muestra con claridad qué controladores, servicios y repositorios específicos necesitan estar enlazados lógicamente para devolver la trazabilidad de los paquetes en tiempo real.
+3. **Bajo Acoplamiento Interno:** Valida que las llamadas lógicas sigan caminos específicos y respeten las interfaces internas expuestas por cada paquete o dominio de la aplicación.
 
 ---
 
