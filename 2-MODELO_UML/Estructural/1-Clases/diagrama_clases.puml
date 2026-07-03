@@ -2,9 +2,9 @@
 !theme plain
 skinparam classAttributeIconSize 0
 
-title Diagrama de Clases (Por Microservicios) - TRANS-SYNC
+title Diagrama de Clases - TRANS-SYNC (Arquitectura Monolítica)
 
-package "Dominio: MS Usuarios e Identidad" #f9f9f9 {
+package "Módulo: Usuarios e Identidad" #f9f9f9 {
     class Usuario {
         - idUsuario: Long
         - dni: String
@@ -24,7 +24,7 @@ package "Dominio: MS Usuarios e Identidad" #f9f9f9 {
     Usuario -> Rol : "tiene 1"
 }
 
-package "Dominio: MS Pasajes" #f9f9f9 {
+package "Módulo: Pasajes" #f9f9f9 {
     class Vehiculo {
         - idVehiculo: Long
         - placa: String
@@ -56,7 +56,7 @@ package "Dominio: MS Pasajes" #f9f9f9 {
     Vehiculo "1" -- "*" Ruta : "asignado a"
 }
 
-package "Dominio: MS Encomiendas" #f9f9f9 {
+package "Módulo: Encomiendas" #f9f9f9 {
     class Encomienda {
         - codigoTracking: String
         - dniRemitente: String
@@ -78,7 +78,7 @@ package "Dominio: MS Encomiendas" #f9f9f9 {
     Encomienda -> EstadoCarga : "tiene"
 }
 
-' Relaciones entre dominios (Lógicas, a través de IDs en la BD real)
+' Relaciones entre módulos (Relaciones directas en la BD Central / JPA)
 Usuario "1" ..> "*" Boleto : "vende (Despachador)"
 Usuario "1" ..> "*" Encomienda : "registra (Despachador)"
 Usuario "1" ..> "1" Vehiculo : "conduce (Conductor)"

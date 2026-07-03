@@ -5,7 +5,7 @@ skinparam class {
     BorderColor #0b4884
 }
 
-title Diagrama de Perfiles - Extensión para Microservicios (Spring Boot)
+title Diagrama de Perfiles - Extensión para Arquitectura Monolítica (Spring Boot)
 
 ' Definición del Perfil
 package "<<profile>>\nSpring Boot Backend" #e6f2ff {
@@ -33,7 +33,7 @@ package "<<profile>>\nSpring Boot Backend" #e6f2ff {
 }
 
 ' Aplicación del Perfil en la vida real
-package "Aplicación del Perfil (TRANS-SYNC: MS Encomiendas)" #f9f9f9 {
+package "Aplicación del Perfil (TRANS-SYNC: Módulo Encomiendas)" #f9f9f9 {
 
     class "EncomiendasController" as ec <<RestController>> {
         endpoint = "/api/encomiendas"
