@@ -4,7 +4,7 @@ Este directorio contiene los artefactos de modelado técnico para los **Diagrama
 
 ## 📂 Estructura del Directorio
 
-Tal como se detalla en el árbol de archivos (ver `image_338500.png`), este directorio está compuesto por los siguientes recursos:
+Tal como se detalla en el árbol de archivos, este directorio está compuesto por los siguientes recursos:
 
 * **📄 `tiempos_reserva.puml`:** Script de PlantUML que modela las variaciones de estado de los objetos a lo largo del tiempo durante un proceso lineal de reserva rápida.
 * **📄 `Readme.md`:** Documentación guía del directorio actual.
@@ -17,7 +17,7 @@ El diagrama contenido en este módulo especifica con alta precisión el comporta
 
 ### Objetivos del Modelado de Tiempos (`tiempos_reserva.puml`):
 1.  **Control de Bloqueos Temporales:** Define la duración exacta del estado *Asiento Bloqueado* desde que el counter inicia la selección en Juliaca o Cusco, otorgando una ventana de tiempo máxima (ej. 5 minutos) antes de liberar el asiento automáticamente para evitar el desabastecimiento artificial.
-2.  **Sincronización del API Gateway:** Analiza las transiciones de los hilos de ejecución en el backend y los tiempos de respuesta permitidos para que el microservicio de Pasajes actualice la persistencia compartida.
+2.  **Sincronización de Componentes Internos:** Analiza las transiciones de los hilos de ejecución en el backend y los tiempos de respuesta permitidos para que el módulo de Pasajes actualice la base de datos centralizada compartida.
 3.  **Ciclo Crítico:** Mapea de forma temporal la secuencia de estados del asiento: `Libre` ➡️ `Bloqueo Temporal (Pendiente de Pago)` ➡️ `Vendido / Confirmado` o su retorno a `Libre` por tiempo de espera agotado (Timeout).
 
 ---
