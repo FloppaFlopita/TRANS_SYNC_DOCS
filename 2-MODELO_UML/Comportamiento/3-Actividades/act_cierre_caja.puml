@@ -3,15 +3,15 @@
 skinparam ActivityBackgroundColor #e2e8f0
 skinparam ActivityBorderColor #475569
 
-title Diagrama de Actividad: Cierre de Caja y Liquidación
+title Diagrama de Actividad: Cierre de Caja y Liquidación (Arquitectura Monolítica)
 
 |#LightBlue|Despachador (Counter)|
 start
 :Solicita cierre de caja del turno;
 
-|#LightGreen|Microservicio de Liquidación|
-:Consulta ventas en BD_Pasajes;
-:Consulta ingresos en BD_Encomiendas;
+|#LightGreen|Módulo de Liquidación|
+:Consulta ventas en BD Central;
+:Consulta ingresos en BD Central;
 :Calcula total recaudado y comisiones;
 :Genera reporte de pre-liquidación;
 
@@ -22,7 +22,7 @@ start
 if (¿El monto físico coincide?) then (Sí)
   :Aprueba liquidación;
 
-  |Microservicio de Liquidación|
+  |Módulo de Liquidación|
   :Registra estado "Cuadrado";
 
 else (No)
@@ -30,12 +30,12 @@ else (No)
   :Ingresa monto real físico;
   :Escribe justificación (Faltante/Sobrante);
 
-  |Microservicio de Liquidación|
+  |Módulo de Liquidación|
   :Registra estado "Con Observaciones";
   :Dispara alerta al Dueño del Negocio;
 endif
 
-|Microservicio de Liquidación|
+|Módulo de Liquidación|
 :Cierra turno activo;
 
 |Despachador (Counter)|

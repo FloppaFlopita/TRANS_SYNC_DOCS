@@ -2,13 +2,15 @@
 left to right direction
 skinparam packageStyle rectangle
 
+title Diagrama de Casos de Uso General - TRANS-SYNC (Arquitectura Monolítica)
+
 actor "Dueño del Negocio" as dueno
 actor "Despachador (Counter)" as despachador
 actor "Conductor" as conductor
 actor "Pasajero" as pasajero
 actor "Mantenimiento" as mantenimiento
 
-rectangle "TRANS-SYNC (Gestión de Transporte y Encomiendas)" {
+rectangle "TRANS-SYNC (Sistema Monolítico de Gestión)" {
 
   ' Casos de uso generales (Seguridad)
   usecase "Iniciar Sesión" as UC_Login

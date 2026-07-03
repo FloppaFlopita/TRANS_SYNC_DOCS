@@ -5,20 +5,21 @@ skinparam rectangle {
     BorderColor #438dd5
 }
 
-title Nivel 3: Componentes - Microservicio de Auditoría
+title Nivel 3: Componentes - Módulo de Auditoría (Monolito)
 
-rectangle "Cola de Mensajes / API" as api #438dd5
+rectangle "Llamadas Internas\n(Desde otros Módulos)" as llamadas #438dd5
 
-package "Microservicio de Liquidación" {
-    rectangle "Auditoría Controller\n[REST Controller]\n\nRecibe eventos de ventas." as controller
+package "Módulo de Liquidación" {
+    rectangle "Auditoría Controller\n[Componente Interno / Listener]\n\nRecibe eventos de ventas." as controller
     rectangle "Cierre de Caja Service\n[Service]\n\nSuma ingresos por vendedor/chofer\ny guarda el historial de acciones." as service
     rectangle "Auditoría Repository\n[Repository]\n\nRegistro inmutable (Solo escritura)." as repository
 }
 
-database "BD Auditoría" as bd_auditoria #2b78e4
+database "BD Central\n(Esquema Auditoría)" as bd_auditoria #2b78e4
 
-api --> controller : POST /registro-venta
+llamadas --> controller : Invocación interna
 controller --> service : Calcula ingresos
 service --> repository : Guarda log
 repository --> bd_auditoria : SQL
 @enduml
+

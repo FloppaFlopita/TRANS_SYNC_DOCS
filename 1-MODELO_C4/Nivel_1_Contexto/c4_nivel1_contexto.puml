@@ -10,14 +10,14 @@ skinparam actor {
     BorderColor #08427b
 }
 
-title Nivel 1: Diagrama de Contexto - TRANS-SYNC
+title Nivel 1: Diagrama de Contexto - TRANS-SYNC (Arquitectura Monolítica)
 
 actor "Despachador (Counter)" as despachador
 actor "Conductor" as conductor
 actor "Dueño del Negocio" as dueno
 actor "Pasajero" as pasajero
 
-rectangle "Sistema TRANS-SYNC\n[Sistema de Software]\n\nPermite la gestión de pasajes, encomiendas,\nrutas y liquidaciones en tiempo real." as sistema
+rectangle "Sistema TRANS-SYNC\n[Sistema de Software Monolítico]\n\nPermite la gestión centralizada de pasajes, encomiendas,\nrutas y liquidaciones en tiempo real." as sistema
 
 despachador --> sistema : Vende pasajes y registra encomiendas
 conductor --> sistema : Reporta ubicación y estado de entrega
@@ -25,3 +25,6 @@ dueno --> sistema : Supervisa rentabilidad y rutas
 pasajero --> sistema : Compra boletos y consulta envíos
 
 @enduml
+
+https://img.plantuml.biz/plantuml/png/TPF1RjD048RlblmEGxYqKeCQ547K0sf9nOsegX4I8Xp6wy5PkjurkxCffUAHUa0yGbwCMJjneWXoydfc_l_xPvtBmEWvDYRFdl6A6eBMeBPv5kwqRT5Z0vuKewqDmMEUWVpUehghlOkscZlZF3oVJ5xDogelldEM-zVtAysqdN2-8h_jFY-dizaqptuTcg1YgVtFu7msVVcw_9VMjY1QUSQQ1NAXrsHWSW7N6ckHHgW8va95FzZ163xSNYsASV5fCOUJA_yz2gJYw17UE-lCvecrmjCaroEDhYcqg5POoU5aBb1C_dG464Htg0pTObJ5zDXrgDrfhnPfyzl9g845rKvfrqj5icveki60tyZtfNPxI4ZxgnWLEZ19k7sSfVsyUoc92_ULxz7JGIptPMcNzePy8vd18DGKM6_-M51asQFHFx7gXdlFS0PabMiqsGh3sTBwo0Bq04RBsYeKU4j1Ue0rDQsJBmNDYmuwz229-M1BC1w_sPNW0ZwAxk0bifvggSbD7BZcsR33e-bRQfrdX5ZAXQaknWD8835A4L8YgeMWM-tHR15RyciTK3mjOwcDnAaIGagOPxkT7utDNTCANkaCiKl4mXQYuKIytZovaF9U2dVtVygplm00
+

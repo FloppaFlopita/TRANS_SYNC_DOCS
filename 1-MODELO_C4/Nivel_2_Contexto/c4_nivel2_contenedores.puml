@@ -10,34 +10,23 @@ skinparam database {
     FontColor white
 }
 
-title Nivel 2: Diagrama de Contenedores - TRANS-SYNC
+title Nivel 2: Diagrama de Contenedores - TRANS-SYNC (Monolito)
 
 actor "Despachador" as despachador
 actor "Conductor / Dueño" as movil_user
 
 rectangle "Aplicación Web (Terminales)\n[Contenedor: React/Angular]" as web
 rectangle "Aplicación Móvil\n[Contenedor: Flutter/Android]" as app
-rectangle "API Gateway\n[Contenedor: Spring Cloud Gateway]" as api
 
-rectangle "Microservicio de Autenticación\n[Contenedor: Spring Boot]" as ms_auth
-rectangle "Microservicio de Pasajes\n[Contenedor: Spring Boot]" as ms_pasajes
-rectangle "Microservicio de Encomiendas\n[Contenedor: Spring Boot]" as ms_encomiendas
+rectangle "Aplicación Monolítica TRANS-SYNC\n[Contenedor: Spring Boot]\n\nGestiona toda la lógica de negocio\n(Auth, Pasajes, Encomiendas)" as monolito
 
-database "BD Auth\n[PostgreSQL]" as bd_auth
-database "BD Pasajes\n[PostgreSQL]" as bd_pasajes
-database "BD Encomiendas\n[PostgreSQL]" as bd_encomiendas
+database "Base de Datos Unificada\n[PostgreSQL]" as bd_central
 
 despachador --> web : Usa (HTTPS)
 movil_user --> app : Usa (HTTPS)
 
-web --> api : Peticiones API (JSON/HTTPS)
-app --> api : Peticiones API (JSON/HTTPS)
+web --> monolito : Peticiones API REST (JSON/HTTPS)
+app --> monolito : Peticiones API REST (JSON/HTTPS)
 
-api --> ms_auth : Enruta peticiones
-api --> ms_pasajes : Enruta peticiones
-api --> ms_encomiendas : Enruta peticiones
-
-ms_auth --> bd_auth : Lee/Escribe
-ms_pasajes --> bd_pasajes : Lee/Escribe
-ms_encomiendas --> bd_encomiendas : Lee/Escribe
+monolito --> bd_central : Lee/Escribe (SQL)
 @enduml

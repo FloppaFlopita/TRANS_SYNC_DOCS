@@ -1,6 +1,6 @@
 @startuml
 !theme plain
-title Diagrama de Tiempos: Viaje Juliaca - Cusco (Minivan Z4A-123)
+title Diagrama de Tiempos: Viaje Juliaca - Cusco (Minivan Z4A-123 - Sistema Monolítico)
 
 robust "Estado Minivan" as minivan
 concise "App del Conductor" as app

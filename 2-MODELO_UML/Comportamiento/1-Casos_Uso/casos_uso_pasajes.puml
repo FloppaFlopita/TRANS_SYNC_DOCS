@@ -2,11 +2,13 @@
 left to right direction
 skinparam packageStyle rectangle
 
+title Casos de Uso - Módulo de Pasajes (Arquitectura Monolítica)
+
 actor "Despachador (Counter)" as counter
 actor "Pasajero" as pasajero
 actor "Pasarela de Pagos (Visa/Niubiz)" as pasarela
 
-rectangle "Subsistema: Venta y Control de Pasajes" {
+rectangle "Módulo: Venta y Control de Pasajes" {
 
   usecase "Consultar Disponibilidad de Asientos" as UC_Buscar
   usecase "Registrar Datos del Pasajero" as UC_Cliente

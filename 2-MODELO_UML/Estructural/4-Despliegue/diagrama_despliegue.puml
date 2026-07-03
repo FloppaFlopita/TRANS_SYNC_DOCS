@@ -1,0 +1,33 @@
+@startuml
+!theme plain
+skinparam node {
+    BackgroundColor #e2e8f0
+    BorderColor #475569
+}
+
+title Diagrama de Despliegue - TRANS-SYNC (Arquitectura Monolítica)
+
+node "Dispositivo Móvil\n(Android / iOS)" as movil {
+    artifact "App Móvil\n(Flutter)" as app
+}
+
+node "Computadora / Terminal de Venta\n(Windows / Linux)" as pc {
+    artifact "Navegador Web\n(Frontend SPA)" as web
+}
+
+node "Servidor de Aplicación\n(Ej. VPS / AWS EC2)" as server {
+    component "Aplicación Central TRANS-SYNC\n(Spring Boot .jar)" as monolito
+}
+
+node "Servidor de Base de Datos\n(Ej. AWS RDS)" as db_server {
+    database "Base de Datos Unificada\n(PostgreSQL)" as bd
+}
+
+' Conexiones de los clientes al servidor
+app --> server : Internet (HTTPS / JSON)
+web --> server : Internet (HTTPS / JSON)
+
+' Conexión del servidor a la base de datos
+monolito --> bd : Red Privada (TCP/IP / JDBC)
+
+@enduml
