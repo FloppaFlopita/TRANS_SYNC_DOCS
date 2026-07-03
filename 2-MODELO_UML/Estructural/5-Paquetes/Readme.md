@@ -4,7 +4,7 @@ Este directorio contiene los artefactos de modelado técnico para el **Diagrama 
 
 ## 📂 Estructura del Directorio
 
-Tal como se detalla en el árbol de archivos actual (ver `image_339347.png`), este directorio está compuesto por los siguientes recursos:
+Tal como se detalla en el árbol de archivos actual, este directorio está compuesto por los siguientes recursos:
 
 * **📄 `diagrama_paquetes.puml`:** Script de PlantUML que define la agrupación por paquetes del software, mostrando la separación por capas y las relaciones de dependencia entre los distintos módulos.
 * **📄 `Readme.md`:** Documentación guía del directorio actual.
@@ -13,10 +13,10 @@ Tal como se detalla en el árbol de archivos actual (ver `image_339347.png`), es
 
 ## 🔍 Organización y Modularidad Modelada
 
-El archivo `diagrama_paquetes.puml` ilustra visualmente la arquitectura de software limpia aplicada por **Synergy6** para estructurar el backend del ecosistema:
+El archivo `diagrama_paquetes.puml` ilustra visualmente la arquitectura de software limpia aplicada por **Synergy6** para estructurar el monolito modular:
 
-1. **Abstracción por Dominios:** Agrupa de forma estricta las funcionalidades lógicas del negocio de **Transportes Veloz Altiplano E.I.R.L.** en paquetes independientes (Pasajes, Encomiendas, Autenticación, Usuarios y Liquidación).
-2. **Separación por Capas (Layered Structure):** Dentro de cada paquete de microservicio, se detalla la subdivisión interna en carpetas lógicas para garantizar el orden del código fuente:
+1. **Abstracción por Dominios:** Agrupa de forma estricta las funcionalidades lógicas del negocio de **Transportes Veloz Altiplano E.I.R.L.** en paquetes independientes (Pasajes, Encomiendas, Autenticación, Usuarios y Liquidación) dentro de la misma base de código.
+2. **Separación por Capas (Layered Structure):** Dentro de cada dominio lógico de la aplicación central, se detalla la subdivisión interna en carpetas lógicas para garantizar el orden del código fuente:
     * `controller`: Capa que expone los endpoints REST RESTful de la aplicación.
     * `service`: Contenedor de las reglas de negocio y algoritmos de orquestación.
     * `repository`: Capa encargada del acceso y persistencia de datos.
