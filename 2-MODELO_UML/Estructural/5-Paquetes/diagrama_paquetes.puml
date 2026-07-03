@@ -3,7 +3,7 @@
 skinparam packageStyle folder
 skinparam backgroundColor #ffffff
 
-title Diagrama de Paquetes - Arquitectura Limpia (Microservicio Pasajes)
+title Diagrama de Paquetes - Módulo Pasajes (Arquitectura Monolítica)
 
 package "pe.com.transsync.pasajes" #f0f8ff {
 
@@ -15,12 +15,12 @@ package "pe.com.transsync.pasajes" #f0f8ff {
     package "service" #e6f2ff {
         interface IPasajeService
         class PasajeServiceImpl
-        note bottom: Reglas de negocio\ny validaciones
+        note bottom: Reglas de negocio\ny llamadas internas
     }
 
     package "repository" #e6f2ff {
         interface IPasajeRepository
-        note bottom: Consultas a\nla Base de Datos
+        note bottom: Consultas a\nla Base de Datos Central
     }
 
     package "model" #e6f2ff {
@@ -32,11 +32,6 @@ package "pe.com.transsync.pasajes" #f0f8ff {
             class VentaRequestDTO
             class VentaResponseDTO
         }
-    }
-
-    package "config" #e6f2ff {
-        class SecurityConfig
-        class SwaggerConfig
     }
 }
 

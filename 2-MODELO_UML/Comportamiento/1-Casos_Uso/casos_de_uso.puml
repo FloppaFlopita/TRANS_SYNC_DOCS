@@ -2,10 +2,12 @@
 left to right direction
 skinparam packageStyle rectangle
 
+title Casos de Uso - TRANS_SYNC (Arquitectura Monolítica)
+
 actor "Usuario" as UsuarioNormal
 actor "Usuario Vendedor\n(Sucursal/Central)" as Vendedor
 
-rectangle "Sistema TRANS_SYNC" {
+rectangle "Sistema TRANS_SYNC (Monolito)" {
   usecase "Iniciar Sesión" as UC_Login
   usecase "Registrar Venta" as UC_Venta
   usecase "Visualizar Comprobante" as UC_Comprobante
