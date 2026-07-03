@@ -16,7 +16,7 @@ rectangle "Sistema TRANS_SYNC (Monolito)" {
 UsuarioNormal --> UC_Login
 Vendedor --> UC_Venta
 
-' Relaciones de inclusión (Registrar venta requiere iniciar sesión y genera comprobante)
+' Relaciones de inclusión hola(Registrar venta requiere iniciar sesión y genera comprobante)
 UC_Venta ..> UC_Login : <<include>>
 UC_Venta ..> UC_Comprobante : <<include>>
 @enduml

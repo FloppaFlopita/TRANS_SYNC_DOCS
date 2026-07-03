@@ -1,0 +1,39 @@
+@startuml
+left to right direction
+!theme bluegray
+actor "Administrador" as admin
+actor "dueño" as dueno
+actor "Vendedor (central)" as vc
+actor "Vendedor (Sucursal)" as vs
+
+' en esta seccion defino el limite del sistema
+' SYS PROFAR y dentro defino los casos de uso
+
+rectangle "SYS PROFAR"{
+    usecase "CU02\nLogearse" as UC_Login
+
+    usecase "Validar\ncredenciales" as UC_Validar
+    usecase "Generar\nToken JWT" as UC_JWT
+    usecase "Mostrar\nMensaje de error" as UC_error
+}
+
+' En esta seccion hago le relacion de los actores
+' con mi caso de uso principal
+
+admin --> UC_Login
+dueno --> UC_Login
+vc --> UC_Login
+vs --> UC_Login
+
+' en esta seccion defino la relacion que incluye
+' al ejecutar el caso de uso principal
+
+UC_Login .> UC_Validar : <<include>>
+UC_Login .> UC_JWT : <<include>>
+
+' en esta seccion defino la relacion que incluye
+' al ejecutar el caso de uso principal
+
+UC_error .> UC_Login : <<extend>>
+
+@enduml

@@ -1,0 +1,194 @@
+@startuml
+title Diagrama de Clases - TRANS SYNC
+'###################################################
+' ENUMNS
+'#####################################################
+enum EstadoVenta {
+   PENDIENTE
+   PAGADA
+   ANULADA
+}
+enum TipoMovimiento {
+   INGRESO
+   SALIDA
+   TRANSFERENCIA
+}
+enum Rol {
+   ADMINISTRADOR
+   VENDEDOR
+   DUENO
+}
+
+'######################################################################
+'USUARIOS
+'##############################################################################
+
+abstract class Usuario {
+    - idUsuario: int
+    - username: String
+    - password: String
+    - nombres: String
+    - apellidos: String
+    - estado: boolean
+    - ultimoAcceso: DataTime
+
+    + login (): boolean
+    + logout(): void
+    + cambiarPasword(Nueva:String): void
+    + tienePermiso(permiso:String): boolean
+}
+class VENDEDOR{
+    - codigoEmpleado: String
+    - sedeAsigando: String
+
+    + registrarVenta(): Venta
+    + consultarStock(): void
+}
+class ADMINISTRADOR{
+    + registrarUsuario(): void
+    + actualizarUsuario(): void
+    + eliminarUsuario(): void
+    + generarReporteVentas(): void
+    + generarReporteInventario(): void
+}
+class DUENO{
+    + visualDashboard(): void
+    + consultarGanancias(): double
+    + supervisarSedes(): void
+}
+
+Usuario <|-- VENDEDOR : es un tipo de <
+Usuario <|-- ADMINISTRADOR : es un tipo de <
+Usuario <|-- DUENO : es un tipo de <
+
+class Permiso {
+    - idPermiso: int
+    - nombre: String
+    - descripcion: String
+}
+
+Usuario "1" -- "s" Permiso : posee <
+Usuario --> Rol : asignado <
+
+
+'============================
+'VENTAS
+'============================
+
+class Venta{
+    - idVenta: init
+    - fecha: DataTime
+    - total: double
+    - igv: double
+    - estado: EstadoVenta
+
+    + calcularTotal(): double
+    + calcularIGV(): double
+    + registrarPago(): void
+    + generarComprobante(): void
+}
+class DetalleVenta {
+    - cantidad: init
+    - precioUnitario: double
+    - subtotal: double
+
+    + calcularSubtotal(): double
+}
+class Comprobante {
+    - idComprobante: int
+    - serie: String
+    - numero: String
+    - fechaEmision: DataTime
+
+    + emitir(): void
+    + descargarPDF(): void
+}
+
+Venta "1" *-- "1..*" DetalleVenta : contiene
+Venta "1" --> "1" Comprobante : genera
+VENDEDOR "1" --> "0..*" Venta : registra
+
+'============================
+'INVENTARIO
+'============================
+
+class Medicamento {
+    - idMedicamento: int
+    - nombre: String
+    - laboratorio: String
+    - fechaVencimiento: Date
+    - precioCompra: double
+    - requiereReceta: double
+
+    + actualizarPrecio): void
+    + validarVencimiento(): boolean
+}
+class Stock {
+    - idStock: int
+    - cantidadActual: int
+    - stok Minimo: init
+
+}
+class Sede {
+    - idSede: int
+    - nombre: String
+    - direccion: String
+
+    + transferirStock(): void
+    + consultarInventario(): void
+}
+
+class MovimientoInventario {
+    - idMovimiento: int
+    - fecha: DateTime
+    - tipo: TipoMovimiento
+    - cantidad: int
+    - motivo: String
+
+    + registrarMovimiento(): void
+}
+
+class Proveedor {
+    - idProveedor: int
+    - razonSocial: String
+    - telefono: String
+    - direccion: String
+
+    + suministrarMedicamentos(): void
+}
+
+Sede "1" o-- "0..*" Stock : administra
+Stock "1" --> "1" Medicamento : referencia
+DetalleVenta "*" --> "1" Medicamento : incluye
+
+MovimientoInventario "*" --> "1" Medicamento : afecta >
+MovimientoInventario "*" --> "1" Sede : ocurre en >
+
+Proveedor "1" --> "*" Medicamento : suministra
+
+'========================
+' AUDITORIA
+'========================
+
+class Auditoria {
+    - idAuditoria: int
+    - fechaHora: DateTime
+    - accion: String
+    - modulo: String
+    - descripcion: String
+    - ipOrigen: String
+
+    + registrarEvento(): void
+    + generarTraza(): void
+}
+
+Usuario "1" --> "*" Auditoria : genera
+
+'========================
+' RELACIONES ADICIONALES
+'========================
+
+Administrador --> Sede : gestiona
+Dueno --> Sede : supervisa
+
+@enduml
