@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="576209fc-080d-458b-87a2-39c55991365f" name="Changes" comment="Primer commit">
+      <change afterPath="$PROJECT_DIR$/3-Decision Arquitectonica (ADRS)/ADRs-TRANSSYNC.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-MODELO_C4/Nivel_1_Contexto/c4_nivel1_contexto.puml" beforeDir="false" afterPath="$PROJECT_DIR$/1-MODELO_C4/Nivel_1_Contexto/c4_nivel1_contexto.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-MODELO_C4/Nivel_2_Contexto/arquitectura_microservicios.puml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-MODELO_C4/Nivel_2_Contexto/c4_nivel2_contenedores.puml" beforeDir="false" afterPath="$PROJECT_DIR$/1-MODELO_C4/Nivel_2_Contexto/c4_nivel2_contenedores.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-MODELO_C4/Nivel_3_Contexto/c4_nivel3_auditoria.puml" beforeDir="false" afterPath="$PROJECT_DIR$/1-MODELO_C4/Nivel_3_Contexto/c4_nivel3_auditoria.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-MODELO_C4/Nivel_3_Contexto/c4_nivel3_auth.puml" beforeDir="false" afterPath="$PROJECT_DIR$/1-MODELO_C4/Nivel_3_Contexto/c4_nivel3_auth.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-MODELO_C4/Nivel_3_Contexto/c4_nivel3_encomiendas.puml" beforeDir="false" afterPath="$PROJECT_DIR$/1-MODELO_C4/Nivel_3_Contexto/c4_nivel3_encomiendas.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-MODELO_C4/Nivel_3_Contexto/c4_nivel3_pasajes.puml" beforeDir="false" afterPath="$PROJECT_DIR$/1-MODELO_C4/Nivel_3_Contexto/c4_nivel3_pasajes.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1-MODELO_C4/Nivel_3_Contexto/c4_nivel3_usuarios.puml" beforeDir="false" afterPath="$PROJECT_DIR$/1-MODELO_C4/Nivel_3_Contexto/c4_nivel3_usuarios.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-MODELO_UML/Comportamiento/1-Casos_Uso/casos_de_uso.puml" beforeDir="false" afterPath="$PROJECT_DIR$/2-MODELO_UML/Comportamiento/1-Casos_Uso/casos_de_uso.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-MODELO_UML/Comportamiento/1-Casos_Uso/casos_uso_general.puml" beforeDir="false" afterPath="$PROJECT_DIR$/2-MODELO_UML/Comportamiento/1-Casos_Uso/casos_uso_general.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-MODELO_UML/Comportamiento/1-Casos_Uso/casos_uso_pasajes.puml" beforeDir="false" afterPath="$PROJECT_DIR$/2-MODELO_UML/Comportamiento/1-Casos_Uso/casos_uso_pasajes.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-MODELO_UML/Comportamiento/2-Secuencia/seq_vender_pasaje.puml" beforeDir="false" afterPath="$PROJECT_DIR$/2-MODELO_UML/Comportamiento/2-Secuencia/seq_vender_pasaje.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-MODELO_UML/Comportamiento/3-Actividades/act_cierre_caja.puml" beforeDir="false" afterPath="$PROJECT_DIR$/2-MODELO_UML/Comportamiento/3-Actividades/act_cierre_caja.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-MODELO_UML/Comportamiento/3-Actividades/flujo_registrar_venta.puml" beforeDir="false" afterPath="$PROJECT_DIR$/2-MODELO_UML/Comportamiento/3-Actividades/flujo_registrar_venta.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-MODELO_UML/Comportamiento/4-Estado/estado_encomienda.puml" beforeDir="false" afterPath="$PROJECT_DIR$/2-MODELO_UML/Comportamiento/4-Estado/estado_encomienda.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-MODELO_UML/Comportamiento/5-Tiempos/tiempos_viaje.puml" beforeDir="false" afterPath="$PROJECT_DIR$/2-MODELO_UML/Comportamiento/5-Tiempos/tiempos_viaje.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-MODELO_UML/Comportamiento/6-Comunicacion/com_rastreo_paquete.puml" beforeDir="false" afterPath="$PROJECT_DIR$/2-MODELO_UML/Comportamiento/6-Comunicacion/com_rastreo_paquete.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-MODELO_UML/Estructural/1-Clases/diagrama_clases.puml" beforeDir="false" afterPath="$PROJECT_DIR$/2-MODELO_UML/Estructural/1-Clases/diagrama_clases.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-MODELO_UML/Estructural/2-Objetos/objetos_boleto_real.puml" beforeDir="false" afterPath="$PROJECT_DIR$/2-MODELO_UML/Estructural/2-Objetos/objetos_boleto_real.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-MODELO_UML/Estructural/3-Componentes/componentes_app_movil.puml" beforeDir="false" afterPath="$PROJECT_DIR$/2-MODELO_UML/Estructural/3-Componentes/componentes_app_movil.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-MODELO_UML/Estructural/4-Despliegue/diagrama_despliegue.puml" beforeDir="false" afterPath="$PROJECT_DIR$/2-MODELO_UML/Estructural/4-Despliegue/diagrama_despliegue.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-MODELO_UML/Estructural/5-Paquetes/diagrama_paquetes.puml" beforeDir="false" afterPath="$PROJECT_DIR$/2-MODELO_UML/Estructural/5-Paquetes/diagrama_paquetes.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2-MODELO_UML/Estructural/6-Perfil/perfil_springboot.puml" beforeDir="false" afterPath="$PROJECT_DIR$/2-MODELO_UML/Estructural/6-Perfil/perfil_springboot.puml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;FloppaFlopita&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/FloppaFlopita/TRANS_SYNC_DOCS.git&quot;,
+    &quot;accountId&quot;: &quot;c7c9bafd-a23c-426a-832a-729159eb7d0b&quot;
+  }
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="3DRrmN8dVD0VXnizgthNV4ntruG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;uso__pasajes&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Floppa/IdeaProjects/TRANS_SYNC/src/main/java/com/trans_sync/Main.java&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="TRANS_SYNC" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="TRANS_SYNC" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.26094.121" />
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-IU-251.26094.121" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="576209fc-080d-458b-87a2-39c55991365f" name="Changes" comment="" />
+      <created>1778255883623</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1778255883623</updated>
+      <workItem from="1778255884867" duration="1176000" />
+      <workItem from="1778257069473" duration="64000" />
+      <workItem from="1778257159717" duration="43000" />
+      <workItem from="1778257213796" duration="46000" />
+      <workItem from="1778257266006" duration="1866000" />
+      <workItem from="1778706553699" duration="4126000" />
+      <workItem from="1780237313468" duration="1041000" />
+      <workItem from="1781734720907" duration="878000" />
+      <workItem from="1781874136330" duration="2712000" />
+      <workItem from="1781884577952" duration="4292000" />
+      <workItem from="1782939705897" duration="128000" />
+      <workItem from="1782943934794" duration="3796000" />
+      <workItem from="1783092135857" duration="102000" />
+      <workItem from="1783092531776" duration="96000" />
+      <workItem from="1783096743664" duration="19000" />
+    </task>
+    <task id="LOCAL-00001" summary="Primer commit">
+      <option name="closed" value="true" />
+      <created>1781876582858</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1781876582858</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Primer commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Primer commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/trans_sync/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

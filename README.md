@@ -1,3 +1,6 @@
+nueva_exposicion
+# Proyecto TRANS_SYNC
+=======
 # TRANS SYNC
 
 Documentación del Sistema de Gestión de Ventas e Inventario.
@@ -20,3 +23,4 @@ Documentación del Sistema de Gestión de Ventas e Inventario.
 ## Caso de Uso - Registrar Venta
 
 ![Diagrama Caso de Uso Registrar Venta](https://www.plantuml.com/plantuml/png/VT0nQ-im40VmNP_Yy1lUbBpXGOOIJ8nhIg1Dm4u37I-oweZ8KZYTkfH-zogYRkn2uqbd_GxT_rQUaJZqHXZroi0EI7T7XbQJagoT5VwaxHa9UpYWF7NaWcrBPnp1d_j5zRzO2F4NPhCP5ELkMrVDvInGSWJPcxAjQXrbW1w6Ol3DkjbLJmNiwcBJGFEoALFhERw2dOAiqPvLZwFxx5r0_89N4dqKjUgY8IJOAykONg7XtvGMWIFHCjfd7v2qIne37wUmTDO7mqZ_zcXq6tt3JfwIrZPcu4lpjET1MKLHbgu_apkWPPMylDQ_3Lw4LhCZZQa1Xqfy35kggyUYN6ytNuiTbXYBV9HLV1zXFizJBBY3vL9RQKAhydmAHabkiN60M-uwzm-rYjE6tdm2)
+feature/inicial
